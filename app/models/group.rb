@@ -3,5 +3,6 @@ class Group
 
   field :name, type: String, localize: true
 
-  embeds_many :matches
+  has_many :matches
+  accepts_nested_attributes_for :matches
 end

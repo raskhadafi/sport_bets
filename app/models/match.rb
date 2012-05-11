@@ -5,9 +5,8 @@ class Match
   field :score_b, type: Integer
   field :kickoff, type: DateTime
 
-  has_one :opponent_a, class_name: Team
-  has_one :opponent_b, class_name: Team
-  has_one :place
-
-  embedded_in :group
+  belongs_to :opponent_a, class_name: 'Team', inverse_of: :challenger
+  belongs_to :opponent_b, class_name: 'Team', inverse_of: :contender
+  belongs_to :place
+  belongs_to :group
 end

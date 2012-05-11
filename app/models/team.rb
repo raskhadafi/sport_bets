@@ -4,5 +4,6 @@ class Team
   field :name,  type: String,  localize: true
   field :score, type: Integer, default: 0
 
-  has_many :matches
+  has_many :challenger, class_name: 'Match', inverse_of: :opponent_a
+  has_many :contender,  class_name: 'Match', inverse_of: :opponent_b
 end

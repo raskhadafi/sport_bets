@@ -42,7 +42,13 @@ group_d = Group.create(name: 'Gruppe D')
 end
 
 [
-  {opponent_a: polen, opponent_b: greek, place: warschau, kickoff: DateTime.strptime('08.06.2012 18:00', '%d.%m.%Y %H:%M')}
+  {
+    opponent_a: polen,
+    opponent_b: greek,
+    place:      warschau,
+    kickoff:    DateTime.strptime('08.06.2012 18:00', '%d.%m.%Y %H:%M'),
+    group:      group_a
+  }
 ].each do |match|
   Match.create(match)
 end
