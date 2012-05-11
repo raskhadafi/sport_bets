@@ -1,4 +1,4 @@
 SportBets::Application.routes.draw do
   resources :participants
-  root :to => 'welcome#index'
+  root :to => 'participants#index'
 end
