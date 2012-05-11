@@ -18,4 +18,5 @@ gem 'simple_form'
 
 group :development do
   gem 'quiet_assets'
+  gem 'thin'
 end
