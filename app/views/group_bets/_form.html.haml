@@ -1,6 +1,6 @@
 = form_for @group_bet do |f|
   = f.text_field :name
   = f.hidden_field :group_id
-  = f.collection_select :first_place_id,  Team.all, :id, :name, prompt: 'Team auswählen'
-  = f.collection_select :second_place_id, Team.all, :id, :name, prompt: 'Team auswählen'
+  = f.collection_select :first_place_id,  Team.all.cache, :id, :name, prompt: 'Team auswählen'
+  = f.collection_select :second_place_id, Team.all.cache, :id, :name, prompt: 'Team auswählen'
   = f.submit
