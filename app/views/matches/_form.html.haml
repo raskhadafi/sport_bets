@@ -1,0 +1,4 @@
+= simple_form_for @match do |f|
+  = f.input :score_a, as: :integer, label: @match.opponent_a
+  = f.input :score_b, as: :integer, label: @match.opponent_b
+  = f.submit

@@ -1,6 +1,10 @@
 %li
-  = match.opponent_a
-  vs.
-  = match.opponent_b
-  %br
-  = match.kickoff.to_s(:short) + " " + match.place.name
+  = link_to edit_match_path(match) do
+    = match.opponent_a
+    vs.
+    = match.opponent_b
+    - if match.score_a && match.score_b
+      %br
+      = match.score_a.to_s + ":" + match.score_b.to_s
+    %br
+    = match.kickoff.to_s(:short) + " " + match.place.name

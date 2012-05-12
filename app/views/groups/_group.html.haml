@@ -1,4 +1,8 @@
 - unless group.matches.empty?
   %li
     = group.name
+    %br
+    = link_to 'Neue Gruppenwette', new_group_group_bet_path(group)
+    %br
+    = link_to 'Gruppenwetten', group_group_bets_path(group)
     %ul= render group.matches
