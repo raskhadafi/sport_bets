@@ -28,15 +28,15 @@ posen    = Place.create(name: 'Posen')
 donezk   = Place.create(name: 'Donezk')
 kiew     = Place.create(name: 'Kiew')
 
-group_a = Group.create(name: 'Gruppe A')
-group_b = Group.create(name: 'Gruppe B')
-group_c = Group.create(name: 'Gruppe C')
-group_d = Group.create(name: 'Gruppe D')
+group_a = Group.create(name: 'Gruppe A', round: 1)
+group_b = Group.create(name: 'Gruppe B', round: 1)
+group_c = Group.create(name: 'Gruppe C', round: 1)
+group_d = Group.create(name: 'Gruppe D', round: 1)
 
 [
-  {name: 'Viertelfinal'},
-  {name: 'Halbfinal'},
-  {name: 'Final'}
+  {name: 'Viertelfinal', round: 2},
+  {name: 'Halbfinal',    round: 3},
+  {name: 'Final',        round: 4}
 ].each do |group|
   Group.create(group)
 end
