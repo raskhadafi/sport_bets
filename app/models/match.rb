@@ -9,4 +9,6 @@ class Match
   belongs_to :opponent_b, class_name: 'Team', inverse_of: :contender
   belongs_to :place
   belongs_to :group
+
+  default_scope asc(:kickoff)
 end

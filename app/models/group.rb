@@ -1,8 +1,9 @@
 class Group
   include Mongoid::Document
 
-  field :name, type: String, localize: true
+  field :name,  type: String, localize: true
+  field :round, type: Integer
 
   has_many :matches
-  accepts_nested_attributes_for :matches
+  has_many :group_bets
 end
