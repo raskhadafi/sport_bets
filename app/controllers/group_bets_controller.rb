@@ -8,9 +8,9 @@ class GroupBetsController < ApplicationController
     new!
   end
 
-  def show
-    show! do |format|
-      format.html { redirect_to groups_path }
+  def create
+    create! do |success, failure|
+      success.html { redirect_to group_group_bets_path(@group_bet.group) }
     end
   end
 end
