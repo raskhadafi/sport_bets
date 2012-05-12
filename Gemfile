@@ -14,6 +14,7 @@ end
 gem 'jquery-rails'
 gem 'haml-rails'
 gem 'inherited_resources'
+gem 'simple_form'
 
 group :development do
   gem 'quiet_assets'
