@@ -1,0 +1,9 @@
+de-CH:
+  groups:
+    index:
+      game:        Spiele
+      group_games: Gruppenphase
+      finals:      Finalrunde
+  teams:
+    index:
+      overview:    Gruppenübersicht
