@@ -12,4 +12,16 @@ class Team
   def to_s
     name
   end
+
+  def table_score
+    "#{name} #{score} #{matches.count}"
+  end
+
+  def matches
+    challenger + contender
+  end
+
+  def score
+    challenger.collect(&:score_a).sum + contender.collect(&:score_b).sum
+  end
 end
