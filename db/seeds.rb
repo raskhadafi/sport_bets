@@ -28,18 +28,20 @@ posen    = Place.create(name: 'Posen')
 donezk   = Place.create(name: 'Donezk')
 kiew     = Place.create(name: 'Kiew')
 
-group_a = Group.create(name: 'Gruppe A', round: 1)
-group_b = Group.create(name: 'Gruppe B', round: 1)
-group_c = Group.create(name: 'Gruppe C', round: 1)
-group_d = Group.create(name: 'Gruppe D', round: 1)
+quater  = Group.create(name: 'Viertelfinal', round: 2)
+half    = Group.create(name: 'Halbfinal',    round: 3)
+final   = Group.create(name: 'Final',        round: 4)
 
-[
-  {name: 'Viertelfinal', round: 2},
-  {name: 'Halbfinal',    round: 3},
-  {name: 'Final',        round: 4}
-].each do |group|
-  Group.create(group)
-end
+quater_match_one   = Match.create(group: quater)
+quater_match_two   = Match.create(group: quater)
+quater_match_three = Match.create(group: quater)
+quater_match_four  = Match.create(group: quater)
+
+group_a = Group.create(name: 'Gruppe A',     round: 1, next_match: quater_match_one, next_match_field: 'opponent_a')
+group_b = Group.create(name: 'Gruppe B',     round: 1, next_match: quater_match_one, next_match_field: 'opponent_b')
+group_c = Group.create(name: 'Gruppe C',     round: 1, next_match: quater_match_one, next_match_field: 'opponent_a')
+group_d = Group.create(name: 'Gruppe D',     round: 1, next_match: quater_match_one, next_match_field: 'opponent_b')
+
 
 [
   {
