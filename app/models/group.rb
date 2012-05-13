@@ -12,4 +12,12 @@ class Group
 
   validates_presence_of :name
   validates_presence_of :round
+
+  def to_s
+    name
+  end
+
+  def teams
+    matches.includes(:opponent_a).map { |e| e.opponent_a  }.uniq.sort_by(&:score).reverse
+  end
 end
