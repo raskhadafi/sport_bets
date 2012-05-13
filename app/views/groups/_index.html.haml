@@ -1,6 +1,11 @@
-%h1 Gruppenspiele
-
-%ul{data: {role: "listview", inset: "true"}}= render @groups
+%h1= t('.game')
+%ul{data: {role: "listview", inset: "true"}}
+  %li{data: {role: 'list-divider'}}= t('.group_games')
+  = render @groups.where(round: 1)
+  %li{data: {role: 'list-divider'}}= t('.finals')
+  = render @groups.where(round: 2)
+  = render @groups.where(round: 3)
+  = render @groups.where(round: 4)
 
 - content_for :header_left do
   = link_to 'Neuer Teilnehmer', new_participant_path, 'data-ajax' => false

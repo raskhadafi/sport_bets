@@ -1,0 +1,6 @@
+%h2 Gruppentabelle
+%ol{data: {role: "listview", inset: "true"}}
+  - @group.teams.each_with_index do |team, i|
+    %li{data: {theme: cycle('a', 'a', 'e', 'e')}}
+      = team
+      %span.ui-li-count= team.score

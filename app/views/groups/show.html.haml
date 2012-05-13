@@ -4,6 +4,8 @@
 - content_for :header_right do
   = link_to 'Gruppenwetten', group_group_bets_path(@group)
 
-%h1= "Gruppenspiele #{@group.name}"
-
-%ul{data: {role: "listview", inset: "true"}}= render @group.matchs
+%h1= @group
+- if @group.round.eql?(1)
+  = render 'ranking'
+%h2 Spiele
+%ul{data: {role: "listview", inset: "true"}}= render @group.matches
