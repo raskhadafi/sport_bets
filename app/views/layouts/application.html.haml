@@ -5,14 +5,16 @@
     = stylesheet_link_tag    "application", :media => "all"
     = csrf_meta_tags
   %body{id: "#{controller_name}_#{action_name}"}
-    .page{'data-role' => "page"}
-      .header{ 'data-role' => "header" }
+    .page{data: {role: "page"}}
+      .header{data: {role: "header", theme: 'c'}}
         = yield :header_left
-        %h1= link_to 'SportBets', root_path
+        %h3#logo SportBets
         = yield :header_right
-      .content{'data-role' => "content"}= yield
-      .footer{ 'data-role' => "footer" }
+      .content{data: {role: "content"}}= yield
+      .footer{data: {role: "footer", theme: 'c'}}
         = yield :footer_left
-        %h1= link_to 'SportBets', root_path
+        %h3#logo SportBets
         = yield :footer_right
+        %h3
+          Developed by Roman Simecek, 2012
     = javascript_include_tag "application"
