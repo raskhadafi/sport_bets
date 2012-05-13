@@ -1,7 +1,9 @@
 class MatchesController < ApplicationController
   inherit_resources
 
-  def show
-    redirect_to groups_path
+  def update
+    update! do |success, failure|
+      success.html { redirect_to group_path(@match.group) }
+    end
   end
 end
