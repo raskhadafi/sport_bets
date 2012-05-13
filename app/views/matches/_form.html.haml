@@ -2,6 +2,6 @@
   = link_to 'Gruppenübersicht', group_path(@match.group)
 
 = simple_form_for @match, :html => {'data-ajax' => false} do |f|
-  = f.input :score_a, as: :integer, label: @match.opponent_a
-  = f.input :score_b, as: :integer, label: @match.opponent_b
+  = f.input :goal_a, as: :integer, label: @match.opponent_a
+  = f.input :goal_b, as: :integer, label: @match.opponent_b
   = f.submit

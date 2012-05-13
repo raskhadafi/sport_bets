@@ -1,5 +1,5 @@
 %li
-  - if match.score_a && match.score_b
+  - if match.goal_a && match.goal_b
     %h3.ui-li-heading
       = match.opponent_a
       vs.
@@ -7,7 +7,7 @@
     %p.ui-li-desc= link_to 'Resultat korrigieren', edit_match_path(match), 'data-ajax' => false
     .ui-li-count
       Resultat
-      = match.score_a.to_s + ":" + match.score_b.to_s
+      = match.goal_a.to_s + ":" + match.goal_b.to_s
   - else
     = link_to edit_match_path(match), 'data-ajax' => false do
       %h3.ui-li-heading
