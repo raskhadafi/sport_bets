@@ -5,7 +5,7 @@ class Group
   field :round,            type: Integer
   field :next_match_field, type: String
 
-  has_many :matchs
+  has_many :matches
   has_many :group_bets
 
   belongs_to  :next_match, class_name: 'Match'
