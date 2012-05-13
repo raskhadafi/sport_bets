@@ -3,5 +3,5 @@ class Place
 
   field :name, type: String, localize: true
 
-  has_many :matches
+  has_many :matchs
 end
