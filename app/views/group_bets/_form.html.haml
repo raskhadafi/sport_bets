@@ -1,3 +1,6 @@
+- content_for :header_left do
+  = link_to 'Gruppen', root_path, 'data-role' => "button", 'data-mini' => true
+  
 = form_for @group_bet, :html => {'data-ajax' => false} do |f|
   = f.collection_select :participant, Participant.all.cache, :id, :name
   = f.hidden_field :group_id

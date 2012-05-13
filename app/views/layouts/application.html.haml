@@ -7,9 +7,11 @@
   %body{id: "#{controller_name}_#{action_name}"}
     .page{data: {role: "page"}}
       .header{data: {role: "header", theme: 'c'}}
-        = yield :header_left
+        .ui-btn-left{data: {role: "controlgroup", type: 'horizontal'}}
+          = yield :header_left
         %h3#logo SportBets
-        = yield :header_right
+        .ui-btn-right{data: {role: "controlgroup", type: 'horizontal'}}
+          = yield :header_right
       .content{data: {role: "content"}}= yield
       .footer{data: {role: "footer", theme: 'c'}}
         = yield :footer_left

@@ -8,4 +8,4 @@
   = render @groups.where(round: 4)
 
 - content_for :header_left do
-  = link_to 'Neuer Teilnehmer', new_participant_path, 'data-ajax' => false
+  = link_to 'Neuer Teilnehmer', new_participant_path, 'data-ajax' => false, 'data-role' => 'button'
