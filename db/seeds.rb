@@ -2,46 +2,69 @@
 
 I18n.locale = 'de-CH'
 
-polen     = Team.create(name: 'Polen')
-russia    = Team.create(name: 'Russland')
-greek     = Team.create(name: 'Griechenland')
-czech     = Team.create(name: 'Tschechien')
-nederland = Team.create(name: 'Niederlande')
-germany   = Team.create(name: 'Deutschland')
-danemark  = Team.create(name: 'Dänemark')
-portugal  = Team.create(name: 'Portugal')
-spain     = Team.create(name: 'Spanien')
-irland    = Team.create(name: 'Irland')
-italy     = Team.create(name: 'Italien')
-croatia   = Team.create(name: 'Kroatien')
-ukraine   = Team.create(name: 'Ukraine')
-france    = Team.create(name: 'Frankreich')
-sweden    = Team.create(name: 'Schweden')
-england   = Team.create(name: 'England')
+polen     = Team.create!(name: 'Polen')
+russia    = Team.create!(name: 'Russland')
+greek     = Team.create!(name: 'Griechenland')
+czech     = Team.create!(name: 'Tschechien')
+nederland = Team.create!(name: 'Niederlande')
+germany   = Team.create!(name: 'Deutschland')
+danemark  = Team.create!(name: 'Dänemark')
+portugal  = Team.create!(name: 'Portugal')
+spain     = Team.create!(name: 'Spanien')
+irland    = Team.create!(name: 'Irland')
+italy     = Team.create!(name: 'Italien')
+croatia   = Team.create!(name: 'Kroatien')
+ukraine   = Team.create!(name: 'Ukraine')
+france    = Team.create!(name: 'Frankreich')
+sweden    = Team.create!(name: 'Schweden')
+england   = Team.create!(name: 'England')
 
-warschau = Place.create(name: 'Warschau')
-breslau  = Place.create(name: 'Breslau')
-charkiw  = Place.create(name: 'Charkiw')
-lemberg  = Place.create(name: 'Lemberg')
-danzig   = Place.create(name: 'Danzig')
-posen    = Place.create(name: 'Posen')
-donezk   = Place.create(name: 'Donezk')
-kiew     = Place.create(name: 'Kiew')
+warschau = Place.create!(name: 'Warschau')
+breslau  = Place.create!(name: 'Breslau')
+charkiw  = Place.create!(name: 'Charkiw')
+lemberg  = Place.create!(name: 'Lemberg')
+danzig   = Place.create!(name: 'Danzig')
+posen    = Place.create!(name: 'Posen')
+donezk   = Place.create!(name: 'Donezk')
+kiew     = Place.create!(name: 'Kiew')
 
-quater  = Group.create(name: 'Viertelfinal', round: 2)
-half    = Group.create(name: 'Halbfinal',    round: 3)
-final   = Group.create(name: 'Final',        round: 4)
+quater  = Group.create!(name: 'Viertelfinal', round: 2)
+half    = Group.create!(name: 'Halbfinal',    round: 3)
+final   = Group.create!(name: 'Final',        round: 4)
 
-quater_match_one   = Match.create(group: quater)
-quater_match_two   = Match.create(group: quater)
-quater_match_three = Match.create(group: quater)
-quater_match_four  = Match.create(group: quater)
+quater_match_one   = Match.create!(group: quater, place: kiew, kickoff: DateTime.strptime('08.06.2012 18:00', '%d.%m.%Y %H:%M'))
+quater_match_two   = Match.create!(group: quater, place: kiew, kickoff: DateTime.strptime('08.06.2012 18:00', '%d.%m.%Y %H:%M'))
+quater_match_three = Match.create!(group: quater, place: kiew, kickoff: DateTime.strptime('08.06.2012 18:00', '%d.%m.%Y %H:%M'))
+quater_match_four  = Match.create!(group: quater, place: kiew, kickoff: DateTime.strptime('08.06.2012 18:00', '%d.%m.%Y %H:%M'))
 
-group_a = Group.create(name: 'Gruppe A',     round: 1, next_match: quater_match_one, next_match_field: 'opponent_a')
-group_b = Group.create(name: 'Gruppe B',     round: 1, next_match: quater_match_one, next_match_field: 'opponent_b')
-group_c = Group.create(name: 'Gruppe C',     round: 1, next_match: quater_match_one, next_match_field: 'opponent_a')
-group_d = Group.create(name: 'Gruppe D',     round: 1, next_match: quater_match_one, next_match_field: 'opponent_b')
-
+group_a = Group.create!(name: 'Gruppe A',
+                       round: 1,
+                       first_next_match: quater_match_one,
+                       first_next_match_field: 'opponent_a',
+                       second_next_match: quater_match_two,
+                       second_next_match_field: 'opponent_a'
+                       )
+group_b = Group.create!(name: 'Gruppe B',
+                       round: 1,
+                       first_next_match: quater_match_one,
+                       first_next_match_field: 'opponent_b',
+                       second_next_match: quater_match_two,
+                       second_next_match_field: 'opponent_b'
+                       )
+group_c = Group.create!(name: 'Gruppe C',
+                       round: 1,
+                       first_next_match: quater_match_three,
+                       first_next_match_field: 'opponent_a',
+                       second_next_match: quater_match_four,
+                       second_next_match_field: 'opponent_a'
+                       )
+group_d = Group.create!(name: 'Gruppe D',
+                       round: 1,
+                       first_next_match: quater_match_three,
+                       first_next_match_field: 'opponent_b',
+                       second_next_match: quater_match_four,
+                       second_next_match_field: 'opponent_b'
+                       )
 
 [
   {
@@ -213,5 +236,5 @@ group_d = Group.create(name: 'Gruppe D',     round: 1, next_match: quater_match_
     group:      group_d
   }
 ].each do |match|
-  Match.create(match)
+  Match.create!(match)
 end
