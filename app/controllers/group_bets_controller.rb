@@ -12,7 +12,7 @@ class GroupBetsController < ApplicationController
   def create
     create! do |success, failure|
       success.html do
-        redirect_to group_path(@group_bet.group)
+        redirect_to group_group_bets_path(@group_bet.group)
       end
     end
   end
