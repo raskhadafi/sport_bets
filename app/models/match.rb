@@ -12,8 +12,8 @@ class Match
 
   default_scope asc(:kickoff)
 
-  validates_presence_of :place
-  validates_presence_of :group
+  validates_presence_of :score_a, :if => :persisted?
+  validates_presence_of :score_b, :if => :persisted?
 
   def result
     "#{opponent_a} #{score_a}:#{score_b} #{opponent_b}"
