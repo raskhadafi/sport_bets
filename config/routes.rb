@@ -5,7 +5,7 @@ SportBets::Application.routes.draw do
     resources :teams, only: [:index]
 
     member do
-      post :finish
+      get :finish
     end
   end
   resources :matches

@@ -1,0 +1,7 @@
+#message.ui-bar.ui-bar-e
+  %h3= @group
+  %p
+    Wurde geschlossen und die Teams die weiterkommen sind:
+    %ol
+      - @group.teams.first(2).each do |team|
+        %li= team
