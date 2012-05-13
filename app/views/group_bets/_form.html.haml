@@ -1,5 +1,5 @@
-= form_for @group_bet do |f|
-  = f.text_field :name
+= form_for @group_bet, :html => {'data-ajax' => false} do |f|
+  = f.collection_select :participant, Participant.all.cache, :id, :name
   = f.hidden_field :group_id
   = f.collection_select :first_place_id,  Team.all.cache, :id, :name, prompt: 'Team auswählen'
   = f.collection_select :second_place_id, Team.all.cache, :id, :name, prompt: 'Team auswählen'
