@@ -1,4 +1,6 @@
-%ul{data: {role: "listview", dividertheme: "b",inset: "true", theme: 'c'}}= render @groups
+%h1 Gruppenspiele
+
+%ul{data: {role: "listview", inset: "true"}}= render @groups
 
 - content_for :header_left do
-  = link_to 'Neuer Teilnehmer', new_participant_path
+  = link_to 'Neuer Teilnehmer', new_participant_path, 'data-ajax' => false

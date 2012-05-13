@@ -1,4 +1,8 @@
-%ul= render @group_bets
+- content_for :header_left do
+  = link_to 'Neue Gruppenwette', new_group_group_bet_path(@group), 'data-ajax' => false
 
-= link_to 'Neue Gruppenwette', new_group_group_bet_path(@group)
-= link_to 'Gruppenübersicht', groups_path
+- content_for :header_right do
+  = link_to 'Gruppenübersicht', groups_path
+
+%ul{data: {role: "listview", inset: "true"}}= render @group_bets
+

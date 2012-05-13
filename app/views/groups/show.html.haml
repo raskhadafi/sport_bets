@@ -1,8 +1,9 @@
-%h1= @group.name
+- content_for :header_left do
+  = link_to 'Neue Gruppenwette', new_group_group_bet_path(@group), 'data-ajax' => false
 
-%h2 Spielresultate
+- content_for :header_right do
+  = link_to 'Gruppenwetten', group_group_bets_path(@group)
 
-%ul
-  - @group.matches.each do |match|
-    %li= match.result
+%h1= "Gruppenspiele #{@group.name}"
 
+%ul{data: {role: "listview", inset: "true"}}= render @group.matchs

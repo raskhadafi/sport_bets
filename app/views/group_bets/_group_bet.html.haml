@@ -1,5 +1,10 @@
 %li
-  = group_bet.name
-  %ol
-    %li= group_bet.first_place
-    %li= group_bet.second_place
+  %h3.ui-li-heading= group_bet.name
+  %p.ui-li-desc
+    %strong 1. Platz
+    = group_bet.first_place
+  %p.ui-li-desc
+    %strong 2. Platz
+    = group_bet.second_place
+  
+  

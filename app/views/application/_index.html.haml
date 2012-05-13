@@ -1,3 +1,4 @@
-%ul= render collection
+%ul{data: {role: "listview", inset: "true"}}= render collection
 
-= link_to 'Neuer Teilnehmer', new_participant_path
+- content_for :header_left do
+  = link_to 'Neuer Teilnehmer', new_participant_path

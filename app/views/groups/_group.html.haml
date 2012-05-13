@@ -1,6 +1,2 @@
 %li{data: {role:"list-divider"}}
   = link_to group.name, group_path(group)
-- if group.round.eql?(1)
-  %li= link_to 'Neue Gruppenwette', new_group_group_bet_path(group)
-  / %li= link_to 'Gruppenwetten', group_group_bets_path(group)
-  / %ul= render group.matchs
