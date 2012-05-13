@@ -16,9 +16,4 @@ class GroupBetsController < ApplicationController
       end
     end
   end
-
-private
-  def fetch_group
-    @group = Group.find(params[:group_id])
-  end
 end
