@@ -175,42 +175,42 @@ group_d = Group.create(name: 'Gruppe D',     round: 1, next_match: quater_match_
     opponent_b: england,
     place:      donezk,
     kickoff:    DateTime.strptime('11.06.2012 18:00', '%d.%m.%Y %H:%M'),
-    group:      group_c
+    group:      group_d
   },
   {
     opponent_a: ukraine,
     opponent_b: sweden,
     place:      kiew,
     kickoff:    DateTime.strptime('11.06.2012 20:45', '%d.%m.%Y %H:%M'),
-    group:      group_c
+    group:      group_d
   },
   {
     opponent_a: ukraine,
     opponent_b: france,
     place:      donezk,
     kickoff:    DateTime.strptime('15.06.2012 18:00', '%d.%m.%Y %H:%M'),
-    group:      group_c
+    group:      group_d
   },
   {
     opponent_a: sweden,
     opponent_b: england,
     place:      kiew,
     kickoff:    DateTime.strptime('15.06.2012 20:45', '%d.%m.%Y %H:%M'),
-    group:      group_c
+    group:      group_d
   },
  {
     opponent_a: england,
     opponent_b: ukraine,
     place:      donezk,
     kickoff:    DateTime.strptime('19.06.2012 20:45', '%d.%m.%Y %H:%M'),
-    group:      group_c
+    group:      group_d
   },
   {
     opponent_a: sweden,
     opponent_b: france,
     place:      kiew,
     kickoff:    DateTime.strptime('19.06.2012 20:45', '%d.%m.%Y %H:%M'),
-    group:      group_c
+    group:      group_d
   }
 ].each do |match|
   Match.create(match)
