@@ -1,5 +1,5 @@
 - content_for :header_left do
-  = link_to 'Gruppenübersicht', group_path(@match.group)
+  = link_to @group, group_path(@group), 'data-role' => "button"
 
 = simple_form_for @match, :html => {'data-ajax' => false} do |f|
   = f.input :goal_a, as: :integer, label: @match.opponent_a

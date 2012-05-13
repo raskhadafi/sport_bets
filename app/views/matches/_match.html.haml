@@ -4,16 +4,16 @@
       = match.opponent_a
       vs.
       = match.opponent_b
-    %p.ui-li-desc= link_to 'Resultat korrigieren', edit_match_path(match), 'data-ajax' => false
+    %p.ui-li-desc= link_to 'Resultat korrigieren', edit_group_match_path(@group, match), 'data-ajax' => false
     .ui-li-count
       Resultat
       = match.goal_a.to_s + ":" + match.goal_b.to_s
   - else
-    = link_to edit_match_path(match), 'data-ajax' => false do
+    = link_to edit_group_match_path(@group, match), 'data-ajax' => false do
       %h3.ui-li-heading
-        = match.opponent_a
+        = match.opponent_a if match.opponent_a
         vs.
-        = match.opponent_b
+        = match.opponent_b if match.opponent_b
       %p.ui-li-desc 
         %strong Kickoff
       %p.ui-li-desc= "#{match.kickoff.to_s(:short)} in #{match.place.name}"
