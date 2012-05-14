@@ -1,2 +1,6 @@
-$('.content').prepend('<%=j render 'finish' %>');
-$('.content .ui-bar a').button();
+<% if @group.transfer_teams %>
+  alert('Die Teams <%=j @group.transfer_teams.join(', ') %> sind weiter.');
+  $('.ui-btn-right').remove();
+<% else %>
+  alert('Es wurde nichts transferiert.');
+<% end %>

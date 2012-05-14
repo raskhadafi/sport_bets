@@ -16,12 +16,38 @@ class Group
   validates_presence_of :name
   validates_presence_of :round
 
+  attr :transfer_teams
+
   def close
+    case round
+    when 1
+      transfer2second_round
+    else
+      matches2next_round
+    end
+  end
+
+  def matches2next_round
+    matches.each do |match|
+      winner_team = match.winner_team
+
+      if winner_team
+        transfer = match.next_match
+        transfer.send("#{match.next_position}=", winner_team)
+        transfer.save!(validate: false)
+        @transfer_teams << winner_team
+      end
+    end
+  end
+
+  def transfer2second_round
     first_next_match.send("#{first_next_match_field}_id=", teams[0].id)
     first_next_match.save!(validate: false)
     second_next_match.send("#{second_next_match_field}_id=", teams[1].id)
     second_next_match.save!(validate: false)
     update_attribute(:finished, true)
+    @transfer_teams << teams[0]
+    @transfer_teams << teams[1]
   end
 
   def running?

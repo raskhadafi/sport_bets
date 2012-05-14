@@ -6,11 +6,12 @@ class Match
   TieScore    = 1
   LostScore   = 0
 
-  field :score_a, type: Integer, default: 0
-  field :score_b, type: Integer, default: 0
-  field :goal_a,  type: Integer
-  field :goal_b,  type: Integer
-  field :kickoff, type: DateTime
+  field :score_a,       type: Integer, default: 0
+  field :score_b,       type: Integer, default: 0
+  field :goal_a,        type: Integer
+  field :goal_b,        type: Integer
+  field :kickoff,       type: DateTime
+  field :next_position, type: String
 
   belongs_to :opponent_a,     class_name: 'Team', inverse_of: :challenger
   belongs_to :opponent_b,     class_name: 'Team', inverse_of: :contender
@@ -19,6 +20,9 @@ class Match
 
   has_one :first_next_match,  class_name: 'Group', inverse_of: :first_next_match
   has_one :second_next_match, class_name: 'Group', inverse_of: :second_next_match
+
+  belongs_to :next_match,     class_name: 'Match', inverse_of: :previous_match
+  has_one    :previous_match, class_name: 'Match', inverse_of: :next_match
 
   default_scope asc(:kickoff)
 
@@ -38,6 +42,14 @@ class Match
     end
 
     self.save
+  end
+
+  def winner_team
+    if goal_a && goal_b
+      goal_a < goal_b ? opponent_b : opponent_a
+    else
+      nil
+    end
   end
 
   def result
