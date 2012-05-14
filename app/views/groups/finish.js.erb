@@ -1,6 +1,2 @@
-<% if @group.transfer_teams %>
-  alert('Die Teams <%=j @group.transfer_teams.join(', ') %> sind weiter.');
-  $('.ui-btn-right').remove();
-<% else %>
-  alert('Es wurde nichts transferiert.');
-<% end %>
+alert('Die Teams wurden übetragen');
+$('.ui-btn-right').remove();

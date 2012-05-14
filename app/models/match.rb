@@ -29,6 +29,18 @@ class Match
   validates_presence_of :goal_a, on: :update
   validates_presence_of :goal_b, on: :update
 
+  def next
+    move_teams
+    calculate_score
+  end
+
+  def move_teams
+    unless group.round.eql?(1) or group.round.eql?(4)
+      next_match.send("#{next_position}=", winner_team)
+      next_match.save!(validate: false)
+    end
+  end
+
   def calculate_score
     if goal_a == goal_b
       self.score_a = TieScore

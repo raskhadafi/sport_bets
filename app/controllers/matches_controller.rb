@@ -5,7 +5,7 @@ class MatchesController < ApplicationController
   def update
     update! do |success, failure|
       success.html do
-        @match.calculate_score
+        @match.next
 
         redirect_to group_path(@match.group)
       end
