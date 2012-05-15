@@ -1,9 +1,9 @@
 module ApplicationHelper
   def final_groups
-    Group.finals
+    @final_groups ||= Group.finals
   end
 
   def start_groups
-    Group.start
+    @start_groups ||= Group.start
   end
 end
