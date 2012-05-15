@@ -1,8 +1,10 @@
 - content_for :header_left do
-  = link_to @group.to_s, @group, 'data-role' => 'button', 'data-rel' => 'back'
+  = link_to @group, @group, 'data-role' => 'button', 'data-rel' => 'back'
 
 - content_for :header_right do
   = link_to 'Neue Gruppenwette', new_group_group_bet_path(@group), 'data-ajax' => false, 'data-role' => 'button'
+
+%h1= @group
 
 %ul{data: {role: "listview", inset: "true"}}= render @group_bets
 

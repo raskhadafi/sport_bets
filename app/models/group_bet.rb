@@ -9,7 +9,6 @@ class GroupBet
   validates_presence_of :first_place
   validates_presence_of :second_place
   validates_presence_of :group
-  validates_presence_of :participant
 
   def name
     "#{participant.first_name} #{participant.last_name}" if participant

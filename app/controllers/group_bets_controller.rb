@@ -1,12 +1,18 @@
 class GroupBetsController < ApplicationController
   inherit_resources
 
-  before_filter :fetch_group
+  before_filter :fetch_group, except: [:update, :create]
 
   def new
     @group_bet = GroupBet.new(group: @group)
 
     new!
+  end
+
+  def index
+    @group_bets = @group.group_bets
+
+    index!
   end
 
   def create

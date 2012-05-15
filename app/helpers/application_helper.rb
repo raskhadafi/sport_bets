@@ -6,4 +6,8 @@ module ApplicationHelper
   def start_groups
     @start_groups ||= Group.start
   end
+
+  def team_collection(group)
+    group.matches.map { |e| e.opponent_a  }.uniq
+  end
 end
