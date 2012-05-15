@@ -16,6 +16,9 @@ class Group
   validates_presence_of :name
   validates_presence_of :round
 
+  scope :finals, excludes(round: 1)
+  scope :start,  where(round: 1)
+
   def close
     case round
     when 1
