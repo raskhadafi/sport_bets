@@ -14,6 +14,14 @@
           = yield :header_right
       .content{data: {role: "content"}}= yield
       .footer{data: {role: "footer", theme: 'c'}}
+        .nav-bar{data: {role: 'navbar'}}
+          %ul
+            - final_groups.each do |group|
+              %li= link_to group, group
+          %ul
+            - start_groups.each do |group|
+              %li= link_to group, group
+
         = yield :footer_left
         %h3#logo SportBets
         %h5 Developed by Roman Simecek, 2012
