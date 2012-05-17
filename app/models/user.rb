@@ -43,7 +43,17 @@ class User
 
   has_many :group_bets
 
-  def name
-    "#{first_name} #{last_name}"
+  def to_s
+    return "#{first_name} #{last_name}" if first_name || last_name
+
+    email
+  end
+
+  def bet_score
+    group_bet_score
+  end
+
+  def group_bet_score
+    group_bets.map(&:score).sum
   end
 end

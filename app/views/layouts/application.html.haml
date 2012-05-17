@@ -12,7 +12,7 @@
         %h3#logo SportBets
         .ui-btn-right{data: {role: "controlgroup", type: 'horizontal'}}
           - if user_signed_in?
-            / %a{href: '#', data: {role: 'button', theme: 'a'}}= "Punkte: #{current_user.score}"
+            %a{href: '#', data: {role: 'button', theme: 'a'}}= "Punkte: #{current_user.bet_score}"
             = link_to 'Abmelden', destroy_user_session_path, :method => :delete, 'data-role' => 'button', 'data-theme' => 'a'
             = link_to 'Login ändern', edit_user_registration_path, 'data-role' => 'button', 'data-theme' => 'a'
           - else

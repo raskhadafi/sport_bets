@@ -13,6 +13,8 @@ class GroupBet
   validates_presence_of :group
 
   def score
+    return 0 unless group.finished?
+
     score = 0
     score += Win if group.teams[0].eql?(first_place)
     score += Win if group.teams[1].eql?(second_place)
