@@ -12,7 +12,11 @@ class GroupBet
   validates_presence_of :second_place
   validates_presence_of :group
 
-  def name
-    "#{participant.first_name} #{participant.last_name}" if participant
+  def score
+    score = 0
+    score += Win if group.teams[0].eql?(first_place)
+    score += Win if group.teams[1].eql?(second_place)
+
+    score
   end
 end
