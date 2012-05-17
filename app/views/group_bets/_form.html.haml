@@ -1,7 +1,7 @@
 - content_for :header_left do
   = link_to @group_bet.group, @group_bet.group, 'data-role' => "button", 'data-mini' => true
   
-= form_for @group_bet, :html => {'data-ajax' => false} do |f|
+= form_for @group_bet do |f|
   = f.collection_select :participant, Participant.all.cache, :id, :name
   = f.hidden_field :group_id
   = f.collection_select :first_place_id,  team_collection(@group_bet.group), :id, :name, prompt: 'Team auswählen'

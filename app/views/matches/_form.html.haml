@@ -1,7 +1,7 @@
 - content_for :header_left do
   = link_to @group, group_path(@group), 'data-role' => "button"
 
-= simple_form_for @match, :html => {'data-ajax' => false} do |f|
+= simple_form_for @match do |f|
   = f.input :goal_a, as: :integer, label: @match.opponent_a
   = f.input :goal_b, as: :integer, label: @match.opponent_b
   = f.submit

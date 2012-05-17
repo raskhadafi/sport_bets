@@ -5,14 +5,12 @@
 
 - content_for :header_right do
   - if @group.running? && @group.round.eql?(1)
-    = link_to 'Neue Gruppenwette', new_group_group_bet_path(@group), 'data-ajax' => false, 
-                                                                     'data-role' => "button",
+    = link_to 'Neue Gruppenwette', new_group_group_bet_path(@group), 'data-role' => "button",
                                                                      'data-mini' => true
     = link_to 'Guppenspiele abgeschlossen', finish_group_path(@group), 
                                             :remote     => true,
                                             'data-role' => "button", 
-                                            'data-mini' => true,
-                                            'data-ajax' => false
+                                            'data-mini' => true
 
 %h1= @group
 - if @group.round.eql?(1)
