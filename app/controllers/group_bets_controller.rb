@@ -17,6 +17,9 @@ class GroupBetsController < ApplicationController
   end
 
   def create
+    @group_bet = GroupBet.new(params[:group_bet])
+    @group_bet.user = current_user
+
     create! do |success, failure|
       success.html do
         redirect_to group_group_bets_path(@group_bet.group)
