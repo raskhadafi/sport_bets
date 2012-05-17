@@ -11,14 +11,16 @@
           = yield :header_left
         %h3#logo SportBets
         .ui-btn-right{data: {role: "controlgroup", type: 'horizontal'}}
-          - if user_signed_in?
-            %a{href: '#', data: {role: 'button', theme: 'a'}}= "Punkte: #{current_user.bet_score}"
-            = link_to 'Abmelden', destroy_user_session_path, :method => :delete, 'data-role' => 'button', 'data-theme' => 'a'
-            = link_to 'Login ändern', edit_user_registration_path, 'data-role' => 'button', 'data-theme' => 'a'
-          - else
-            = link_to 'Anmelden', new_user_session_path, 'data-role' => 'button', 'data-theme' => 'a'
-            = link_to 'Registrieren', new_user_registration_path, 'data-role' => 'button', 'data-theme' => 'a'
           = yield :header_right
+        .user-bar{data: {role: 'navbar', theme: 'a'}}
+          %ul
+            - if user_signed_in?
+              %a{href: '#', data: {role: 'button', theme: 'a'}}= "Punkte: #{current_user.bet_score}"
+              = link_to 'Abmelden', destroy_user_session_path, :method => :delete, 'data-role' => 'button', 'data-theme' => 'a'
+              = link_to 'Login ändern', edit_user_registration_path, 'data-role' => 'button', 'data-theme' => 'a'
+            - else
+              = link_to 'Anmelden', new_user_session_path, 'data-role' => 'button', 'data-theme' => 'a'
+              = link_to 'Registrieren', new_user_registration_path, 'data-role' => 'button', 'data-theme' => 'a'
       .content{data: {role: "content"}}= yield
       .footer{data: {role: "footer", theme: 'c'}}
         .nav-bar{data: {role: 'navbar'}}
