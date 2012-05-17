@@ -1,5 +1,6 @@
 class MatchesController < ApplicationController
   inherit_resources
+  before_filter :authenticate_user!
   before_filter :fetch_group, except: [:update]
 
   def update

@@ -1,5 +1,5 @@
 SportBets::Application.routes.draw do
-  resources :participants
+  devise_for :users
   resources :groups, only: [:index, :show] do
     resources :group_bets, expect: [:show]
     resources :teams, only: [:index]
