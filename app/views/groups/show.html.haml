@@ -1,10 +1,10 @@
 - content_for :header_left do
   = link_to 'Gruppenübersicht', root_path, 'data-role' => "button", 'data-mini' => true
-  - if @group.round.eql?(1)
+  - if user_signed_in? && @group.round.eql?(1)
     = link_to 'Gruppenwetten', group_group_bets_path(@group), 'data-role' => "button", 'data-mini' => true
 
 - content_for :header_right do
-  - if @group.running? && @group.round.eql?(1)
+  - if user_signed_in? && @group.running? && @group.round.eql?(1)
     = link_to 'Neue Gruppenwette', new_group_group_bet_path(@group), 'data-role' => "button",
                                                                      'data-mini' => true
     = link_to 'Guppenspiele abgeschlossen', finish_group_path(@group), 
