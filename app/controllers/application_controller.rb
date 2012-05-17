@@ -3,6 +3,6 @@ class ApplicationController < ActionController::Base
 
 private
   def fetch_group
-    @group ||= Group.find(params[:group_id])
+    @group ||= Group.find(params[:group_id]) if params[:group_id]
   end
 end

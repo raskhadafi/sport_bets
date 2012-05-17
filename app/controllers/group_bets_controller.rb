@@ -11,7 +11,8 @@ class GroupBetsController < ApplicationController
   end
 
   def index
-    @group_bets = @group.group_bets
+    @group_bets   = @group.group_bets if @group
+    @group_bets ||= current_user.group_bets if current_user
 
     index!
   end

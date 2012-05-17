@@ -1,10 +1,10 @@
 %li
-  %h3.ui-li-heading= group_bet.user
+  %h3.ui-li-heading= group_bet.group
   %p.ui-li-desc
     %strong 1. Platz
     = group_bet.first_place
   %p.ui-li-desc
     %strong 2. Platz
     = group_bet.second_place
-  
+  %span.ui-li-count= "Score: #{group_bet.score}"
   
