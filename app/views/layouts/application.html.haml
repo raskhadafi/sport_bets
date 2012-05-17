@@ -16,7 +16,7 @@
           %ul
             - if user_signed_in?
               %a{href: '#', data: {theme: 'a'}}= "Punkte: #{current_user.bet_score}"
-              = link_to 'Abgeschlossene Wetten', user_path(current_user), 'data-theme' => 'a'
+              = link_to 'Wetten', user_path(current_user), 'data-theme' => 'a'
               = link_to 'Login ändern', edit_user_registration_path, 'data-theme' => 'a'
               = link_to 'Abmelden', destroy_user_session_path, :method => :delete, 'data-theme' => 'a'
             - else
