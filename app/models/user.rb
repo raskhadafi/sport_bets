@@ -42,6 +42,9 @@ class User
   field :last_name,  type: String
 
   has_many :group_bets
+  has_many :half_final_bets
+  has_many :final_bets
+  has_many :additional_bets
 
   def to_s
     return "#{first_name} #{last_name}" if first_name || last_name

@@ -1,8 +1,6 @@
 class GroupBet
   include Mongoid::Document
 
-  Win = 2
-
   belongs_to :user
   belongs_to :group
   belongs_to :first_place,  class_name: 'Team', inverse_of: :bet_first_place
@@ -16,8 +14,8 @@ class GroupBet
     return 0 unless group.finished?
 
     score = 0
-    score += Win if group.teams[0].eql?(first_place)
-    score += Win if group.teams[1].eql?(second_place)
+    score += Points::GroupBetWin if group.teams[0].eql?(first_place)
+    score += Points::GroupBetWin if group.teams[1].eql?(second_place)
 
     score
   end

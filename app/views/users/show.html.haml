@@ -1,3 +1,16 @@
-%h1 Gruppenwetten
+- content_for :header_left do
+  = link_to 'Gruppenübersicht', root_path, 'data-role' => 'button'
 
+%h1 Wetten
+
+%h2 Final
+%ul{data: {role: "listview", inset: "true"}}= render current_user.half_final_bets
+
+%h2 Halbfinal
+%ul{data: {role: "listview", inset: "true"}}= render current_user.half_final_bets
+
+%h2 Gruppenspiele
 %ul{data: {role: "listview", inset: "true"}}= render current_user.group_bets
+
+%h2 Zusatz
+%ul{data: {role: "listview", inset: "true"}}= render current_user.additional_bets
