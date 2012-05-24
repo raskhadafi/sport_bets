@@ -10,6 +10,8 @@ SportBets::Application.routes.draw do
   end
   resources :users, only: [:show]
   resources :group_bets
+  resources :half_final_bets
+  resources :final_bets
   resources :matches
   root :to => 'groups#index'
 end

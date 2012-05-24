@@ -1,0 +1,10 @@
+= form_for @final_bet do |f|
+  - unless @final_bet.errors.empty?
+    %ul
+    -  @final_bet.errors.full_messages.each do |msg|
+      %li= msg
+  = f.collection_select :team_first,  Team.all, :id, :name, prompt: 'Team auswählen'
+  = f.number_field :score_first
+  = f.collection_select :team_second,  Team.all, :id, :name, prompt: 'Team auswählen'
+  = f.number_field :score_second
+  = f.submit

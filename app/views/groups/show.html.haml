@@ -11,6 +11,8 @@
                                             :remote     => true,
                                             'data-role' => "button", 
                                             'data-mini' => true
+  - if user_signed_in? && @group.running? && @group.round.eql?(3)
+    = link_to 'Halbfinal-Wette abschliessen', new_half_final_bet_path, 'data-role' => 'button'
 
 %h1= @group
 - if @group.round.eql?(1)

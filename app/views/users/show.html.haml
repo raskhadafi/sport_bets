@@ -4,10 +4,16 @@
 %h1 Wetten
 
 %h2 Final
-%ul{data: {role: "listview", inset: "true"}}= render current_user.half_final_bets
+- if current_user.final_bet
+  = render current_user.final_bet
+- else
+  = render 'final_bets/form'
 
 %h2 Halbfinal
-%ul{data: {role: "listview", inset: "true"}}= render current_user.half_final_bets
+- if current_user.half_final_bet
+  = render current_user.half_final_bet
+- else
+  = render 'half_final_bets/form'
 
 %h2 Gruppenspiele
 %ul{data: {role: "listview", inset: "true"}}= render current_user.group_bets

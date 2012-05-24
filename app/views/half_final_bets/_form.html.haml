@@ -1,0 +1,16 @@
+= form_for @half_final_bet do |f|
+  - unless @half_final_bet.errors.empty?
+    %ul
+    -  @half_final_bet.errors.full_messages.each do |msg|
+      %li= msg
+  %h2 Spiel 1
+  = f.collection_select :game_one_team_a,  Team.all, :id, :name, prompt: 'Team auswählen'
+  = f.number_field :score_game_one_team_a
+  = f.collection_select :game_one_team_b,  Team.all, :id, :name, prompt: 'Team auswählen'
+  = f.number_field :score_game_one_team_b
+  %h2 Spiel 2
+  = f.collection_select :game_two_team_a,  Team.all, :id, :name, prompt: 'Team auswählen'
+  = f.number_field :score_game_two_team_a
+  = f.collection_select :game_two_team_b,  Team.all, :id, :name, prompt: 'Team auswählen'
+  = f.number_field :score_game_two_team_b
+  = f.submit
