@@ -1,5 +1,5 @@
 %h2 Sign in
-= simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: {'data-ajax' => false}) do |f|
   .inputs
     = f.input :email, :required => false, :autofocus => true
     = f.input :password, :required => false

@@ -1,6 +1,6 @@
 %h2
   Edit #{resource_name.to_s.humanize}
-= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }) do |f|
+= simple_form_for(resource, :as => resource_name, :url => registration_path(resource_name), :html => { :method => :put }, 'data-ajax' => false) do |f|
   = f.error_notification
   .inputs
     = f.input :email, :required => true, :autofocus => true
