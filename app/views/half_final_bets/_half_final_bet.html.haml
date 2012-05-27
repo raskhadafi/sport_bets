@@ -1,0 +1,18 @@
+%ul{data: {role: 'listview', inset: 'true'}}
+  - [:one, :two].each do |game|
+    %li
+      %h3.ui-li-heading= t(game, scope: 'half_final_bet.game')
+      %p.ui-li-desc
+        %strong
+          Mannschaften:
+          = half_final_bet.send("game_#{game}_team_a")
+          vs.
+          = half_final_bet.send("game_#{game}_team_b")
+      %p.ui-li-desc
+        %strong
+          Resulat:
+          = "#{half_final_bet.send("score_game_#{game}_team_a")}:#{half_final_bet.send("score_game_#{game}_team_b")}"
+      %span.ui-li-count
+        Score:
+        = half_final_bet.score
+       

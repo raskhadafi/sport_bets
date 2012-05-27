@@ -11,7 +11,7 @@ SportBets::Application.routes.draw do
   resources :users, only: [:show]
   resources :group_bets
   resources :half_final_bets
-  resources :final_bets
+  resources :final_bets, except: [:index]
   resources :matches
   root :to => 'groups#index'
 end

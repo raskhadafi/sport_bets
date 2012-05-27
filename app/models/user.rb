@@ -42,7 +42,7 @@ class User
   field :last_name,  type: String
 
   has_many :group_bets
-  has_many :additional_bets
+  has_and_belongs_to_many :additional_bets
 
   has_one  :final_bet
   has_one  :half_final_bet

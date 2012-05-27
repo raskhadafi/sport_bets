@@ -16,9 +16,11 @@
   = render 'half_final_bets/form'
 
 %h2 Gruppenspiele
-%ul{data: {role: "listview", inset: "true"}}
+%ul{data: {role: 'listview', inset: 'true'}}
   = render current_user.group_bets
   = group_bets_links(current_user.group_bets)
 
 %h2 Zusatz
-%ul{data: {role: "listview", inset: "true"}}= render current_user.additional_bets
+%ul{data: {role: 'listview', inset: 'true'}}
+  = render current_user.additional_bets
+  = additional_bets_links(current_user.additional_bets)

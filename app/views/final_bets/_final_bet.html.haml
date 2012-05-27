@@ -1,0 +1,16 @@
+%ul{data: {role: 'listview', inset: 'true'}}
+  %li
+    %h3.ui-li-heading= t('final_bet.game')
+    %p.ui-li-desc
+      %strong
+        Mannschaften:
+        = final_bet.team_first
+        vs.
+        = final_bet.team_second
+    %p.ui-li-desc
+      %strong
+        Resulat:
+        = "#{final_bet.score_first} : #{final_bet.score_second}"
+    %span.ui-li-count
+      Score:
+      = final_bet.score
